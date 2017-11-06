@@ -12,6 +12,9 @@ Constraints:
 type: area: Int
 rtype : ret: arrayList[Int]
 
+time: O(n)
+space O(n)
+
 example:
 area = 12
 ret = [9,1,1,1]
@@ -37,15 +40,19 @@ def answer(area):
 		type: area: int
 		rtype: ret: arrayList[int]
 
+		time: O(n)
+		space O(n)
+
 	'''
 	ret = []
 	if not isValidInput(area):
 		raise ValueError("Invalid Input")
 	maxArea = 0
 	while area > 0:
-		maxArea = int(math.sqrt(area))
-		area = area - maxArea*maxArea
-		ret.append(maxArea*maxArea)
+		tmp = int(math.sqrt(area))
+		maxArea = tmp * tmp
+		area = area - maxArea
+		ret.append(maxArea)
 	print ret
 	return ret
 
@@ -58,6 +65,9 @@ def isValidInput(area):
 
 		type: area: int
 		rtype: Bool
+
+		time: O(1)
+		space: O(1)
 	'''
 	if not (0 < area and area < 1000000) or not area: return False
 	return True
